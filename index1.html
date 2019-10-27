@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Rock Paper Scissors</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="">
+</head>
+
+<body>
+	<!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+            		href="https://www.mozilla.org/en-US/firefox/new/">upgrade your browser</a> to improve your experience.
+            </p>
+        <![endif]-->
+
+	<script>
+		let computerScore = 0;
+		let playerScore = 0;
+		let roundResult;
+
+
+		function computerPlay() {
+			// Allows computer to randomly select rock, paper or scissors for game play
+			let options = ['rock', 'paper', 'scissors'];
+			let selection =  options[Math.floor(Math.random() * options.length)];
+			return selection;
+		}
+
+
+		function gameRound(playerSelection, computerSelection) {
+			// All possible outcomes in a game round
+			if (playerSelection.toLowerCase() == computerSelection) {
+				roundResults = "It's a draw!";
+			} else if ((playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper')
+							|| (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock')
+							|| (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors')) 
+			{
+				roundResult = `You lose! ${computerSelection} beats ${playerSelection}`;
+			} else if ((playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock')
+							|| (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors')
+							|| (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper'))
+			{
+				roundResult = `You win! ${playerSelection} beats ${computerSelection}`;
+			}
+			alert(roundResult);
+			if (roundResult.includes("win")){
+				playerScore ++;
+			} else if (roundResult.includes("lose")){
+				computerScore ++;
+			}
+		}
+
+		function finalScore() {
+			if (playerScore > computerScore) {
+				alert(`You win!\nYour score: ${playerScore}\nComputer Score: ${computerScore}`);
+			} else {
+				alert(`You lose!\nYour score: ${playerScore}\nComputer Score: ${computerScore}`);
+			}
+		}
+
+		function game() {
+			for (let i = 0; i < 5; i++) {
+				let computerSelection = computerPlay();
+				let playerSelection = prompt("Pick one! rock, paper, or scissors");
+				gameRound(playerSelection, computerSelection);	
+			}
+			finalScore();
+		}
+		game();
+	</script>
+</body>
+
+</html>
