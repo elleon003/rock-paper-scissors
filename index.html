@@ -13,6 +13,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
+	<script src="https://kit.fontawesome.com/7a5f159d5d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,14 +22,32 @@
 				href="https://www.mozilla.org/en-US/firefox/new/">upgrade your browser</a> to improve your experience.
 		</p>
 	<![endif]-->
-	
-	<h1>Rock Paper Scissors</h1>
-	<h2>Let's Play! Pick an option below</h2>
-	<button id="rock">Rock</button>
-	<button id="paper">Paper</button>
-	<button id="scissors">Scissors</button>
+	<div id="gamePlay">
+		<h1>Rock Paper Scissors</h1>
+		<h2>Let's Play! Beat the computer to 3 points to win!</h2>
+		<div id="gameButtons">
+			<button class="selections" id="rock"><i class="far fa-hand-rock fa-2x"></i> Rock</button>
+			<button class="selections" id="paper"><i class="far fa-hand-paper fa-2x"></i> Paper</button>
+			<button class="selections" id="scissors"><i class="far fa-hand-scissors fa-2x"></i> Scissors</button>
+		</div>
+	</div>
 
-	<div id="gameResults"></div>
+	<div class="choices">
+		<i class="fas fa-grip-lines" id="placeholder"></i>
+		<i class="itemDisplay far fa-hand-rock fa-2x"></i>
+		<i class="itemDisplay far fa-hand-paper fa-2x"></i>
+		<i class="itemDisplay far fa-hand-scissors fa-2x"></i>
+	</div>
+
+	<div id="gameDisplay">
+		<div id="userScore">
+			<h3>User Score</h3>
+		</div>
+		<div id="computerScore">
+			<h3>Computer Score</h3>
+		</div>
+	</div>
+	<div id="finalScore"></div>
 	
 	
 	<script src="script.js"></script>
